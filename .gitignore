@@ -2,3 +2,4 @@
 .github/workflows/event_files
 act/
 bin/
+poetry.lock

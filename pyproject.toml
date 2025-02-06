@@ -8,9 +8,40 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = "^3.10"
 
-[tool.poetry.dev-dependencies]
-# Add development dependencies here
 
 [build-system]
 requires = ["poetry-core>=2.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.packages]]
+include = "my_python_project"
+from = "src"
+
+[tool.semantic_release]
+version_toml = [
+    "pyproject.toml:tool.poetry.version"
+]
+
+branch = "main"
+upload_to_PyPI = false
+upload_to_release = true
+build_command = "pip install poetry && poetry build"
+
+commit_author = "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+#commit_author = "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+
+[tool.semantic_release.commit_parser_options]
+allowed_tags = [
+    "build",
+    "chore",
+    "ci",
+    "docs",
+    "feat",
+    "fix",
+    "perf",
+    "style",
+    "refactor",
+    "test"
+]
+minor_tags = ["feat"]
+patch_tags = ["fix", "perf"]
