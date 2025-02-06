@@ -1,0 +1,4 @@
+.secrets
+.github/workflows/event_files
+act/
+bin/
